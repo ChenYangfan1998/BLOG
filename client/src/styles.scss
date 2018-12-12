@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: lighter;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+
+$height: 400px;
+.star {
+  top: -2 * $height;
+  right: -2 * $height;
+  opacity: 0;
+  position: absolute;
+  transform-origin: right;
+  border: solid #ffffff;
+  border-width: 1px $height 0 $height;
+  animation: drop 3s infinite cubic-bezier(.23,.08,.78,.37);
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: rotate(315deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-400vh);
+  }
+}

@@ -1,0 +1,34 @@
+#router-box {
+  min-height: 100vh;
+}
+
+app-toolbar {
+  min-height: 5vh;
+}
+footer {
+  margin: 0;
+  padding: 50px 10px;
+  border-top: 1px white solid;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  z-index: -1;
+  flex-wrap: wrap;
+  div, h3 {
+    width: 100%;
+  }
+  h3{
+    font-size: 34px;
+    font-weight: 100;
+  }
+  a {
+    font-family: monospace;
+    color: white;
+    outline: none;
+  }
+}

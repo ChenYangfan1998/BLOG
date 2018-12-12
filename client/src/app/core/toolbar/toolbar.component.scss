@@ -1,0 +1,22 @@
+.light, .dark {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  min-height: 5vh;
+  margin: 0 20px;
+  background-color: transparent;
+  transition: color .3s ease-out;
+}
+a{
+  outline: none;
+}
+
+.light {
+  color: black;
+}
+
+.dark {
+  color: white;
+}
