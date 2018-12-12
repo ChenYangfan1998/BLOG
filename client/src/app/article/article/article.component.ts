@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {map} from 'rxjs/operators';
+import {ArticleService} from '../../service/logic/article.service';
 declare let marked: any;
 
 @Component({
@@ -8,9 +11,33 @@ declare let marked: any;
 })
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
+  articleId$;
+  articleId;
+
+  article;
+
+  constructor(
+    private route: ActivatedRoute,
+    private articleService: ArticleService
+  ) { }
 
   ngOnInit() {
+    this.articleId$ = this.route.paramMap.pipe(
+      map((params: ParamMap) =>
+        params.get('id'))
+    );
+    this.articleId$.subscribe(
+      (id) => {
+        this.articleId = id;
+        this.articleService.getArticleById(id).subscribe(
+          (res) => {
+            this.article = res;
+            document.getElementById('output').innerHTML =
+              marked(this.article.content);
+          }
+        );
+      }
+    );
   }
 
 }

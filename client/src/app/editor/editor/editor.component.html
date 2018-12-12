@@ -1,3 +1,19 @@
-<p>
-  editor works!
-</p>
+<br>
+<br>
+<div>私人领地，没有排版</div>
+<br>
+<input type="text" placeholder="密钥" [(ngModel)]="key">
+<br>
+<input type="text" placeholder="标题" [(ngModel)]="title">
+<br>
+<textarea placeholder="描述" [(ngModel)]="description"></textarea>
+<br>
+<input type="text" placeholder="作者" [(ngModel)]="author">
+<br>
+<textarea placeholder="内容" [(ngModel)]="content" (input)="mdChanged()"></textarea>
+<br>
+<input type="text" placeholder="类型" [(ngModel)]="type">
+<button (click)="submit()">提交</button>
+
+<h2>md内容预览</h2>
+<div id="output" class="output"></div>

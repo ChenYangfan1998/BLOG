@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticleService} from '../../service/logic/article.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-playground',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaygroundComponent implements OnInit {
 
-  constructor() { }
+  articles;
+
+  constructor(
+    private articleService: ArticleService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.articleService.getArticles().subscribe(
+      (data) => {
+        this.articles = data;
+      }
+    );
+  }
+
+  toArticle (article) {
+    this.router.navigateByUrl('/article/' + article.id);
   }
 
 }

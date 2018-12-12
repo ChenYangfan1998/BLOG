@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticleService} from '../../service/logic/article.service';
 declare let marked: any;
 
 
@@ -9,9 +10,38 @@ declare let marked: any;
 })
 export class EditorComponent implements OnInit {
 
-  constructor() { }
+  key;
+  title;
+  description;
+  author;
+  content;
+  type;
+
+  constructor(
+    private articleService: ArticleService
+  ) { }
 
   ngOnInit() {
   }
 
+  mdChanged() {
+    document.getElementById('output').innerHTML =
+      marked(this.content);
+  }
+
+  submit () {
+    this.articleService.publish(
+      this.key,
+      this.title,
+      this.description,
+      this.author,
+      this.content,
+      this.type).subscribe(
+      () => {
+        alert('done');
+      }, (err) => {
+        alert(err.error.error);
+      }
+    );
+  }
 }

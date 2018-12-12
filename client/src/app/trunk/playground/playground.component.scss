@@ -3,3 +3,43 @@ h2 {
   font-size: 34px;
   text-align: center;
 }
+#box {
+  box-sizing: border-box;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+//.underline {
+//  text-decoration: black solid underline;
+//  margin-bottom: 20px;
+//}
+
+.line {
+  margin: 20px 15px;
+  border-top: 1px #aaa solid;
+}
+
+.footer{
+  margin: 10px 0;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.article{
+  h3 {
+    margin: 0 0 20px 0;
+  }
+  margin: 0 15px;
+  padding: 15px 15px;
+  transition: all .3s ease-out;
+  &:hover{
+    background-color: #eeeeee;
+  }
+  &:active{
+    background-color: #cccccc;
+  }
+}

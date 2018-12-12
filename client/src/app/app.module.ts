@@ -8,6 +8,7 @@ import {ArticleModule} from './article/article.module';
 import {EditorModule} from './editor/editor.module';
 import {SharedModule} from './shared/shared.module';
 import {TrunkModule} from './trunk/trunk.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {TrunkModule} from './trunk/trunk.module';
     EditorModule,
     SharedModule,
     TrunkModule,
+    HttpClientModule,
 
     AppRoutingModule
   ],
