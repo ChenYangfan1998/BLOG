@@ -39,13 +39,19 @@
     transform: translate(5px, 5px);
   }
   h1{
-    font-weight: 400;
-    font-size: 36px;
+    font-family: "Eczar", "Arial", sans-serif;
+    margin-bottom: 0;
+    letter-spacing:2px;
+    font-weight: 700;
+    font-size: 42px;
     width: 100%;
   }
   div {
+    //font-family: "Eczar", "Arial", sans-serif;
+    //font-weight: lighter;
+    font-weight: 400;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 

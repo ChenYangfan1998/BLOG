@@ -7,7 +7,7 @@ module.exports = {
     options: {
       dialect: process.env.DIALECT || 'sqlite',
       host: process.env.HOST || 'blog',
-      storage: './../blog.sqlite'
+      storage: './../../blog.sqlite'
     }
   },
   uploadUrl: 'src/public/upload/',

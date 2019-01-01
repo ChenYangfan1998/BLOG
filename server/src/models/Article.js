@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     author: DataTypes.STRING,
     content: DataTypes.STRING,
     likes: DataTypes.INTEGER,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    key: DataTypes.STRING
   });
 };

@@ -1,10 +1,10 @@
 // const multer = require('multer');
-// const config = require('./config/config');
+// const myConfig = require('./myConfig/myConfig');
 const article = require('./controller/article');
 
 module.exports = (app) => {
   // const upload = multer({
-  //   dest: config.uploadUrl
+  //   dest: myConfig.uploadUrl
   // });
 
   app.get('/', function (req, res) {

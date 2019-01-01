@@ -17,7 +17,8 @@ module.exports = {
             author: article.author,
             content: article.content,
             likes: 0,
-            type: article.type
+            type: article.type,
+            key: article.key
           });
           res.send();
         } else {
@@ -27,7 +28,7 @@ module.exports = {
         }
       } else {
         res.status(400).send({
-          error: '密钥错误，无法上传w'
+          error: '密钥错误，无法上传'
         });
       }
     } catch (e) {
@@ -37,11 +38,11 @@ module.exports = {
     }
   },
 
-  // 获取所有文章的基本信息，不包括文章的具体内容
+  // 获取所有文章的基本信息，不包括文章的具体内容和密钥
   async getArticles (req, res) {
     try {
       const allArticles = await Article.findAll({
-        // attributes: { exclude: ['content'] }
+        attributes: { exclude: ['content', 'key'] }
       });
       const result = [];
       for (let article of allArticles) {
@@ -63,14 +64,25 @@ module.exports = {
         }
       });
       if (result) {
+        if (result.dataValues.key) {
+          if (req.body.key) {
+            if (req.body.key !== result.dataValues.key) {
+              res.status(400).send({
+                error: '密钥错误'
+              });
+            }
+          } else {
+            res.status(400).send({
+              error: '需要访问密钥'
+            });
+          }
+        }
         res.send(result.toJSON());
       } else {
         res.status(400).send('查无此文章');
       }
     } catch (e) {
-      res.status(500).send({
-        error: '服务器出错咯'
-      });
+      console.log(e);
     }
   },
 

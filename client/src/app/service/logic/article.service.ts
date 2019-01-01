@@ -11,7 +11,7 @@ export class ArticleService {
     private http: HttpClient
   ) { }
 
-  publish (key, title, description, author, content, type) {
+  publish (key, title, description, author, content, type, articleKey) {
     return this.http.post(myConfig.baseUrl + 'publish', {
       key: key,
       article: {
@@ -19,7 +19,8 @@ export class ArticleService {
         description: description,
         author: author,
         content: content,
-        type: type
+        type: type,
+        key: articleKey
       }
     });
   }
@@ -28,9 +29,10 @@ export class ArticleService {
     return this.http.get(myConfig.baseUrl + 'getArticles');
   }
 
-  getArticleById (id) {
+  getArticleById (id, key) {
     return this.http.post(myConfig.baseUrl + 'getArticleById', {
-      id: id
+      id: id,
+      key: key
     });
   }
 

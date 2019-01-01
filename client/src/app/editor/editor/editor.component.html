@@ -13,6 +13,8 @@
 <textarea placeholder="内容" [(ngModel)]="content" (input)="mdChanged()"></textarea>
 <br>
 <input type="text" placeholder="类型" [(ngModel)]="type">
+<br>
+<input type="text" placeholder="文章密钥" [(ngModel)]="articleKey">
 <button (click)="submit()">提交</button>
 
 <h2>md内容预览</h2>

@@ -18,3 +18,63 @@ h3{
     flex: 1 1 auto;
   }
 }
+
+.key-input-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  div h3{
+    margin-top: 0;
+    font-weight: 100;
+  }
+  input{
+    border: none;
+    border-bottom: 1px black solid;
+    border-radius: 0;
+    outline: none;
+    height: 20px;
+    display: block;
+    width: 100%;
+  }
+}
+
+#enter-button{
+  font-family: 'Noto Serif SC', serif;
+  outline: none;
+  display: block;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  margin: 30px auto 0 auto;
+  border: none;
+  background-color: black;
+  color: white;
+  position: relative;
+  transition: all .2s ease-out;
+  &:before{
+    box-sizing: border-box;
+    opacity: 1;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 40px;
+    border: 1px black solid;
+    transition: all .2s ease-out;
+    transform: translate(4px, 4px);
+  }
+  &:hover{
+    background-color: #555555;
+  }
+  &:active{
+    transform: translate(2px, 2px);
+    &:before{
+      transform: translate(-1px, -1px);
+    }
+  }
+}

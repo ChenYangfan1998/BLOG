@@ -13,9 +13,10 @@ export class EditorComponent implements OnInit {
   key;
   title;
   description;
-  author;
+  author = '陈扬帆';
   content;
   type;
+  articleKey;
 
   constructor(
     private articleService: ArticleService
@@ -36,7 +37,9 @@ export class EditorComponent implements OnInit {
       this.description,
       this.author,
       this.content,
-      this.type).subscribe(
+      this.type,
+      this.articleKey
+    ).subscribe(
       () => {
         alert('done');
       }, (err) => {
